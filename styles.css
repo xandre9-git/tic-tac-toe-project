@@ -1,0 +1,115 @@
+/*** The new CSS Reset - version 1.4.4 (last updated 22.12.2021) ***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+ *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]){
+  display:none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly. */
+:where([contenteditable]){
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+          line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.game-title {
+  color: crimson;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.game-options {
+  display: flex;
+  justify-content: space-evenly;
+  width: 390px;
+}
+
+.game-status {
+  font-size: 1.5em;
+  color:rebeccapurple;
+  font-weight: bold;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color:crimson;
+  height: 400px;
+  width: 400px;
+  margin-top: 2%;
+  border: solid 5px rebeccapurple;
+}
+
+.game-board-box {
+  height: 130px;
+  width: 130px;
+  border: solid 2px crimson;
+  background-color: #f9bcf0;
+  font-size: 108px;
+  text-align: center;
+  color: rgb(61, 29, 61);
+}
+
+.option-button {
+  height: 30px;
+  width: 150px;
+  margin-top: 15px;
+  background-color: rebeccapurple;
+  color: white;
+  border: solid 1px crimson;
+  text-align: center;
+}
