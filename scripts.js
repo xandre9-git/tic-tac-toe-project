@@ -118,7 +118,7 @@ const gameBoardObject = () => {
     // gameOptionsDiv.append(vsCpuBtn); (have not implemented ai coding as of yet)
     body.append(gameOptionsDiv);
 
-    // Box Selection
+    // Tile Tick Function
     const playerTick = (e, player1, player2) => {
       // check to see if value is already there
       if (e.textContent == "X" || e.textContent == "O") {
@@ -170,7 +170,9 @@ const gameBoardObject = () => {
       box.dataset.indexNumber = i;
       box.textContent = null;
       box.addEventListener("click", function(){
-        playerTick(box, playersObj.player1, playersObj.player2);
+        if (!(playersObj.player1 === undefined)) {
+          playerTick(box, playersObj.player1, playersObj.player2);
+        }
       });
       return parent.append(box);
     };
